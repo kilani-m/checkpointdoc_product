@@ -1,0 +1,38 @@
+PROCEDURE dot_product(U,V:ARRAY_OF INTEGER, VAR ps : INTEGER)
+    VAR 
+        i : INTEGER;
+    BEGIN
+        FOR i FROM 0 TO U.length DO
+            ps := ps + U[i] * V[i];
+        END_FOR
+    END
+    //Algorithm_principale
+    ALGORITHM DOT_PRODUCT
+VAR
+    U,V: ARRAY_OF INTEGER;
+    ps :=0,n,i : INTEGER; 
+BEGIN
+     
+    Write('donner n')
+    Read(n)
+    FOR i FROM 0 TO n STEP 1  DO
+        Write('enter corrdonnée de vecteur');
+            Read(U[i])
+       
+    END_FOR
+    FOR i FROM 0 TO n STEP 1  DO
+        Write('enter corrdonnée de vecteur');
+            Read(V[i])
+       
+    END_FOR
+    FOR i FROM 0 TO U.length-1 STEP 1  DO
+        FOR j FROM i+1 TO V.length STEP 1  DO
+            dot_product (U[i],V[i],ps);
+            IF (ps == 0) THEN
+                Write(U[i] +'est' + V[i] + 'orthogonaux');
+            ELSE
+                Write(U[i] +'est' + V[i] + 'non orthogonaux');
+            END_IF
+        END_FOR
+    END_FOR
+END
